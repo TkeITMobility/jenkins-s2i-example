@@ -5,7 +5,7 @@ MAINTAINER Siamak Sadeghianfar <ssadeghi@redhat.com>
 
 # Install headless Java
 USER root
-RUN grep run /proc/mounts && \
+RUN yum repolist --disablerepo=* && \
     yum clean all && \
     yum-config-manager --disable rhel* 1>/dev/null && \
     yum-config-manager --enable rhel-7-server-rpms && \
