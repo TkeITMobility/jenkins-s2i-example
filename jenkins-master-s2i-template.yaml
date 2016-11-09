@@ -162,7 +162,7 @@ objects:
         volumes:
         - name: jenkins-data
           persistentVolumeClaim:
-            claimName: pvc-plqjv
+            claimName: pvc-jenkins
     test: false
     triggers:
     - type: ConfigChange
