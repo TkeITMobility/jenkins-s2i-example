@@ -16,8 +16,8 @@ RUN yum repolist --disablerepo=* && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
-    curl -O https://s3.amazonaws.com/oso-preview-docker-registry/client-tools/3.2/oc-3.2.1.3-1-linux.tar.gz && \
-    cd /usr/bin && tar xvzf ~/oc-3.2.1.3-1-linux.tar.gz && \
+    curl -o ~/oc.tar.gz https://s3.amazonaws.com/oso-preview-docker-registry/client-tools/3.2/oc-3.2.1.3-1-linux.tar.gz && \
+    cd /usr/bin && tar xvzf ~/oc.tar.gz && \
     mkdir -p /var/lib/jenkins && \
     chown -R 1001:0 /var/lib/jenkins && \
     chmod -R g+w /var/lib/jenkins
