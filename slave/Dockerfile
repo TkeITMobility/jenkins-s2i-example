@@ -11,12 +11,13 @@ RUN yum repolist --disablerepo=* && \
     yum-config-manager --enable rhel-7-server-rpms && \
     yum-config-manager --enable rhel-7-server-ose-3.2-rpms && \
     export INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk-headless \
-        java-1.8.0-openjdk-devel nss_wrapper gettext tar git which \
-        atomic-openshift-utils" && \
+        java-1.8.0-openjdk-devel nss_wrapper gettext tar git which" && \
     yum clean all && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
+    curl -O https://s3.amazonaws.com/oso-preview-docker-registry/client-tools/3.2/oc-3.2.1.3-1-linux.tar.gz && \
+    cd /usr/bin && tar xvzf ~/oc-3.2.1.3-1-linux.tar.gz && \
     mkdir -p /var/lib/jenkins && \
     chown -R 1001:0 /var/lib/jenkins && \
     chmod -R g+w /var/lib/jenkins
