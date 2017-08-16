@@ -12,7 +12,7 @@ RUN yum repolist --disablerepo=* && \
     yum-config-manager --enable rhel-7-server-ose-3.2-rpms && \
     yum-config-manager --enable rhel-7-server-extras-rpms && \
     export INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk \
-        java-1.8.0-openjdk-devel nss_wrapper gettext tar git which \
+        java-1.8.0-openjdk-devel dejavu-sans-fonts nss_wrapper gettext tar git which \
         perl-XML-XPath skopeo" && \
     yum clean all && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
