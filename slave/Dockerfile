@@ -18,7 +18,7 @@ RUN yum repolist --disablerepo=* && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
-    curl -o ~/oc.tar.gz https://mirror.openshift.com/pub/openshift-v3/clients/3.4.1.18/linux/oc.tar.gz && \
+    curl -o ~/oc.tar.gz https://mirror.openshift.com/pub/openshift-v3/clients/3.9.40/linux/oc.tar.gz && \
     cd /usr/bin && tar xvzf ~/oc.tar.gz && \
     mkdir -p /var/lib/jenkins && \
     chown -R 1001:0 /var/lib/jenkins && \
