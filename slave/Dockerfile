@@ -5,6 +5,9 @@ MAINTAINER Siamak Sadeghianfar <ssadeghi@redhat.com>
 
 # Install headless Java
 USER root
+
+RUN curl https://letsencrypt.org/certs/isrgrootx1.pem -o /etc/pki/ca-trust/source/anchors/isrgrootx1.pem && update-ca-trust
+
 RUN yum repolist --disablerepo=* && \
     yum clean all && \
     yum-config-manager --disable rhel* 1>/dev/null && \
@@ -24,7 +27,6 @@ RUN yum repolist --disablerepo=* && \
     chown -R 1001:0 /var/lib/jenkins && \
     chmod -R g+w /var/lib/jenkins
     
-RUN curl https://letsencrypt.org/certs/isrgrootx1.pem -o /etc/pki/ca-trust/source/anchors/isrgrootx1.pem && update-ca-trust
 
 # Copy the entrypoint
 COPY configuration/* /var/lib/jenkins/
