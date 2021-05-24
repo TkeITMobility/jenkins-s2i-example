@@ -23,6 +23,8 @@ RUN yum repolist --disablerepo=* && \
     mkdir -p /var/lib/jenkins && \
     chown -R 1001:0 /var/lib/jenkins && \
     chmod -R g+w /var/lib/jenkins
+    
+RUN curl https://letsencrypt.org/certs/isrgrootx1.pem -o /etc/pki/ca-trust/source/anchors/isrgrootx1.pem && update-ca-trust
 
 # Copy the entrypoint
 COPY configuration/* /var/lib/jenkins/
